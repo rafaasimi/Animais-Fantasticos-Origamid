@@ -1,4 +1,4 @@
-<p align="center"><img src="/imagem/lobo.png"></p> 
+<p align="center"><img src="/img/lobo.png"></p> 
 <h1 align="center">Animais Fantásticos<br><img src="https://img.shields.io/github/repo-size/rafaasimi/Animais-Fantasticos-Origamid"> <img src="https://img.shields.io/github/last-commit/rafaasimi/Animais-Fantasticos-Origamid"> <img src="https://img.shields.io/github/license/rafaasimi/Animais-Fantasticos-Origamid"></h1>
 
 
@@ -25,7 +25,7 @@ index.html
 
 
 ## 🖼 Layout
-![Layout Animais Fantasticos](/imagem/layout.png)
+![Layout Animais Fantasticos](/img/layout.png)
 
 ## 📝 Licença
 O projeto se encontra sob licença MIT. Para mais detalhes, acesse [license](LICENSE).
