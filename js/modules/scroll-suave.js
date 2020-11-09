@@ -16,11 +16,10 @@ export default function initScrollSuave() {
         window.scrollTo({
             top: topo,
             behavior: 'smooth'
-        });*/
+        }); */
     }
 
     linksInternos.forEach((link) => {
-        link.addEventListener('click', scrollToSection)
-    })
-
+        link.addEventListener('click', scrollToSection);
+    });
 }
