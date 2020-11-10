@@ -1,23 +1,43 @@
 import outsideClick from './outsideclick.js';
 
-export default function initDropdownMenu() {
-    const dropdownMenus = document.querySelectorAll('[data-dropdown]');
+export default class DropdownMenu {
+    constructor(dropdownMenus, events) {
+        this.dropdownMenus = document.querySelectorAll(dropdownMenus);
+        this.activeClass = 'active';
+        // Define touchstart e click como argumento padrão de eventos
+        // caso o usuario não defina
+        if (events === undefined) {
+            this.events = ['touchstart', 'click'];
+        } else {
+            this.events = events;
+        }
+        this.activeDropdownMenu = this.activeDropdownMenu.bind(this);
+    }
 
-    function handleClick(event) {
+    // Ativa o dropdownmenu e adiciona a função
+    // que observa o clique fora dele
+    activeDropdownMenu(event) {
         event.preventDefault();
-        this.classList.add('active');
-        outsideClick(this, ['touchstart', 'click'], () => {
-            this.classList.remove('active');
+        const elementTarget = event.currentTarget;
+        elementTarget.classList.add(this.activeClass);
+        outsideClick(elementTarget, this.events, () => {
+            elementTarget.classList.remove(this.activeClass);
         });
     }
 
-    dropdownMenus.forEach((menu) => {
-        // Adicionar + de um evento
-        // Array ou adicionando 2 addEventListener
-        // Click = Demora 300ms para ser executado no Mobile
-        // TouchStart = Inicia na hora
-        ['touchstart', 'click'].forEach((userEvent) => {
-            menu.addEventListener(userEvent, handleClick);
+    // Adiciona os eventos ao dropdownmenu
+    addDropdownMenusEvent() {
+        this.dropdownMenus.forEach((menu) => {
+            this.events.forEach((userEvent) => {
+                menu.addEventListener(userEvent, this.activeDropdownMenu);
+            });
         });
-    });
+    }
+
+    init() {
+        if (this.dropdownMenus.length) {
+            this.addDropdownMenusEvent();
+        }
+        return this;
+    }
 }
