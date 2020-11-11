@@ -23,6 +23,10 @@
 # Clone esse repositório
 $ git clone https://github.com/rafaasimi/Animais-Fantasticos-Origamid.git
 
+# Instalar dependências
+index.html
+$ npm install
+
 # Abra o arquivo
 index.html
 ```
